@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+</head>
+<body>
+    <div class="weather-dashboard">
+        <header class="top-bar">
+            <input id="city" type="text" placeholder="Enter city name..." />
+            <button id="unit-toggle">°C / °F</button>
+            <button id="dark-mode-toggle">Dark Mode</button>
+        </header>
+        <div class="dashboard-content">
+            <section class="current-weather">
+                <h2 class="location">City</h2>
+                <div class="weather-info">
+                    <div class="weather-icon"></div>
+                    <div class="weather-temp">--</div>
+                    <div class="feels-like-temp">Feels Like: --</div>
+                    <p class="weather-desc">--</p>
+                </div>
+                <div class="additional-info">
+                    <div class="humidity">
+                        <h4>Humidity</h4>
+                        <p>--%</p>
+                    </div>
+                    <div class="wind-speed">
+                        <h4>Wind Speed</h4>
+                        <p>-- km/h</p>
+                    </div>
+                </div>
+            </section>
+                <section class="forecast">
+                    <h3>8-Day Forecast</h3>
+                    <div class="forecast-container"></div>
+                </section>
+            </section>
+            <section class="map-container">
+                <h3>Map</h3>
+                <div id="map"></div>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+:root {
+    /* Light Mode Colors */
+    --bg-color-light: rgba(255, 255, 255, 0.3);
+    --bg-color-dark: rgba(0, 0, 0, 0.7);
+    --text-color-light: black;
+    --text-color-dark: white;
+    --box-shadow-color-light: rgba(0, 0, 0, 0.1);
+    --box-shadow-color-dark: rgba(255, 255, 255, 0.1);
+    --hover-box-shadow-light: rgba(0, 0, 0, 0.2);
+    --hover-box-shadow-dark: rgba(255, 255, 255, 0.2);
+    --top-bar-text-light: rgb(0, 0, 0);
+    --top-bar-text-dark: black;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    --bg-color-light: rgba(0, 0, 0, 0.7); /* Dark background */
+    --text-color-light: white;  /* Light text */
+    --box-shadow-color-light: rgba(255, 255, 255, 0.1);
+    --box-shadow-color-dark: rgba(255, 255, 255, 0.2);
+    --hover-box-shadow-light: rgba(255, 255, 255, 0.2);
+    --hover-box-shadow-dark: rgba(0, 0, 0, 0.2);
+    --top-bar-text-light: rgb(255, 255, 255); /* Dark text for top bar */
+    --top-bar-text-dark: rgb(255, 255, 255); /* Light text for top bar */
+}
+
+/* Apply Variables */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #94c1eb, #fdbb57); /* Cool blue and yellow gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--text-color-light); /* Text color based on mode */
+}
+
+/* Weather Dashboard */
+.weather-dashboard {
+    width: 90%;
+    max-width: 1700px;
+    background: var(--bg-color-light); /* Background color based on mode */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px var(--box-shadow-color-light); /* Box shadow based on mode */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-color-light); /* Text color based on mode */
+}
+
+/* Top Bar Styles */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: var(--top-bar-bg-light); /* Background color for top bar */
+    color: var(--top-bar-text-light); /* Text color for top bar */
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Top Bar Input Styles */
+.top-bar input {
+    flex: 1;
+    padding: 12px 20px;  /* Add padding for more space inside */
+    font-size: 16px;
+    border: none;  /* Remove border */
+    border-radius: 50px;  /* Fully round corners */
+    background: rgba(255, 255, 255, 0.3);  /* Semi-transparent background */
+    color: var(--text-color-light);  /* Black text color */
+    outline: none;  /* Remove outline when focused */
+    transition: background 0.3s ease, transform 0.3s ease;  /* Smooth transition */
+}
+
+/* Focused state for input */
+.top-bar input:focus {
+    background: rgba(255, 255, 255, 0.5);  /* Brighter background when focused */
+    transform: scale(1.02);  /* Slight scale effect on focus */
+}
+
+.top-bar button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: var(--top-bar-bg-light);
+    color: var(--top-bar-text-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.top-bar button:hover {
+    background: var(--hover-box-shadow-light); /* Hover effect */
+}
+
+/* Layout for Dashboard Content */
+.dashboard-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Current Weather Section */
+.current-weather {
+    flex: 1;
+    background: var(--bg-color-light); /* Background color */
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--box-shadow-color-light);
+    color: var(--text-color-light); /* Text color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 300ms ease, background 0.5s ease;
+    backdrop-filter: blur(8px);
+}
+
+/* Weather Info */
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-temp {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.feels-like-temp {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.weather-desc {
+    font-size: 18px;
+    font-style: italic;
+    color: var(--text-color-light); /* Black font color for description */
+}
+
+/* Forecast Section */
+.forecast {
+    flex: 2;
+    background: var(--bg-color-light);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--box-shadow-color-light);
+    backdrop-filter: blur(8px);
+}
+
+/* Forecast Grid Layout */
+.forecast-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+/* Day Card Styles */
+.day-card {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    padding: 8px; /* Reduced padding */
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--box-shadow-color-light);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    color: var(--text-color-light);
+    max-width: 180px;  /* Smaller width for day cards */
+    margin: 0 auto;  /* Center the cards */
+}
+
+.day-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 15px var(--hover-box-shadow-light); /* Larger shadow for hover */
+    background: rgba(255, 255, 255, 0.3); /* Slightly brighter background */
+}
+
+/* Active state for day cards */
+.day-card.active {
+    background: rgba(255, 255, 255, 0.3);
+    padding-bottom: 15px;  /* Slightly reduced padding on expansion */
+}
+
+/* Hourly Forecast Styles */
+.hourly-forecast {
+    display: none;
+    margin-top: 8px;
+    text-align: left;
+    background: var(--bg-color-light);
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: inset 0 2px 5px var(--box-shadow-color-light);
+    max-height: 250px;  /* Limited height for smoother expansion */
+    overflow-y: scroll;  /* Allow scrolling */
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+/* Remove default scrollbar */
+.hourly-forecast::-webkit-scrollbar {
+    width: 6px;  /* Reduced width for a more minimalist look */
+}
+
+.hourly-forecast::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4); /* Light color for the thumb */
+    border-radius: 10px;  /* Rounded corners for the scrollbar thumb */
+}
+
+.hourly-forecast::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.6); /* Slightly darker thumb on hover */
+}
+
+/* Add scrollbar for Firefox */
+.hourly-forecast {
+    scrollbar-width: thin;  /* Minimal width for Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent; /* Light color for the thumb and transparent track */
+}
+
+.hourly-forecast:hover {
+    overflow-y: auto; /* Ensure scrollbar only appears on hover */
+}
+
+/* Display hourly forecast when day card is active */
+.day-card.active .hourly-forecast {
+    display: block;
+}
+
+/* Hourly Card Styles */
+.hour-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0;
+    padding: 4px;
+    border-radius: 5px;
+    background: var(--bg-color-light);
+    box-shadow: 0 1px 3px var(--box-shadow-color-light);
+    color: var(--text-color-light);
+}
+
+/* Hourly icon size */
+.hour-card img {
+    width: 20px;  /* Smaller icons */
+    height: 20px;
+}
+
+/* Map Section */
+.map-container {
+    flex: 2;
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    background: var(--bg-color-light);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--box-shadow-color-light);
+    backdrop-filter: blur(8px);
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px var(--box-shadow-color-light);
+}
